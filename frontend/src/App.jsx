@@ -1,24 +1,29 @@
-import { useState, useEffect } from 'react'
-import TeamList from './TeamsList'
-import './App.css'
+import { useState, useEffect } from 'react';
+import TeamList from './TeamList';
+import './App.css';
+import TeamForm from './TeamForm';
 
 
 function App() {
-  const [teams, setTeams] = useState([{"teamName": "Arizona Diamondbacks", "city": "Phenoix", id: 1 }])
+  const [teams, setTeams] = useState([]);
 
   useEffect(() => {
-    //fetchTeams()
-  }, [])
+    fetchTeams()
+  }, []);
+  
+  const fetchTeams = async() => {
+    const response = await fetch("http://127.0.0.1:5000/teams");
+    const data = await response.json();
+    setTeams(data.teams);
+    console.log(data.teams);
+  };
 
-  const fetchTeams = async () => {
-    const response = await fetch("http://127.0.0.1:5000/teams")
-    const data = await response.json()
-    setTeams(data.teams)
-    console.log(data.teams)
-
-  }
-
-  return <TeamList teams={teams}/>
+  return (
+    <>
+      <TeamList teams={teams} />
+      <TeamForm />
+    </>
+  );
 }
 
 export default App
