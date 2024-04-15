@@ -4,10 +4,10 @@ import './App.css'
 
 
 function App() {
-  const [teams, setTeams] = useState([])
+  const [teams, setTeams] = useState([{"teamName": "Arizona Diamondbacks", "city": "Phenoix", id: 1 }])
 
   useEffect(() => {
-    fetchTeams()
+    //fetchTeams()
   }, [])
 
   const fetchTeams = async () => {
