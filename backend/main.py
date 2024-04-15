@@ -11,7 +11,7 @@ def get_teams():
     teams = Team.query.all() # get all python objects in Team
     json_teams = list(map(lambda x: x.to_json(), teams))
     
-    return jsonify({"teams": json_teams}), 200 # key-value: teams <> json_teams; convert to json
+    return jsonify({"teams": json_teams}) # key-value: teams <> json_teams; convert to json
 
 
 # POST: /create_team

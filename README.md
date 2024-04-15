@@ -18,3 +18,6 @@
 - `config`: basic config, db connection
 - `models`: db models
 - `main`: main routes/endpoints
+
+### Frontend
+- 
